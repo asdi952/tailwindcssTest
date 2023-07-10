@@ -1,0 +1,69 @@
+
+<html class="p-0 m-0">
+    <head>
+        <title>tailwind</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="file://C:/Users/spamg/Documents/tailwind/test0/dist/output.css" rel="stylesheet">
+    </head>
+    <body class="relative flex bg-red-50 flex-row ">
+        <svg class="absolute w-full h-full" >
+            <rect class="bkLine tt" style="--bg-color:red;--init-pos-x:-300px; --init-pos-y:300px;--anim-delay:0s;" data-a="300px"></rect>
+            <rect class="bkLine tt" style="--bg-color:rgb(221, 157, 157);--init-pos-x:300px; --init-pos-y:400px;--anim-delay:2s;" data-a="300px"></rect>
+            <rect class="bkLine tt" style="--bg-color:grey;--init-pos-x:100px; --init-pos-y:700px;--anim-delay:1s;" data-a="300px"></rect>
+            <rect class="bkLine tt" style="--bg-color:grey;--init-pos-x:100px; --init-pos-y:800px;--anim-delay:0.5s;" data-a="300px"></rect>
+            <rect class="bkLine tt" style="--bg-color:grey;--init-pos-x:-400px; --init-pos-y:900px;--anim-delay:1.3s;" data-a="300px"></rect>
+            <rect class="bkLine tt" style="--bg-color:grey;--init-pos-x:-200px; --init-pos-y:1000px;--anim-delay:0.2s;" data-a="300px"></rect>
+            <rect class="bkLine tt" style="--bg-color:black;--init-pos-x:-200px; --init-pos-y:550px;--anim-delay:2s;" data-a="300px"></rect>
+            <rect class="bkLine tt" style="--bg-color:rgb(94, 36, 36);--init-pos-x:-200px; --init-pos-y:350px;--anim-delay:1s;" data-a="300px"></rect>
+        </svg>
+        <div class=" relative inline-block bg-red-600 my-auto mx-auto p-5" >
+            <div class="bg-red-400 p-5">
+                <h1 class="mb-4 text-4xl font-extrabold leading-10 tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">This is a tailwind test</h1>
+                <div class="ml-5">
+                    <h2 class="font-bold">Objective:</h2>
+                    <p class="ml-2">Make a center div with a list of how tailwind computation flow works</p>
+                </div>
+                <hr class="mt-4 mb-4"/>
+                <ul class="list-disc ml-8 leading-7">
+                    <li><p>Write tailwindcss createed classes</p></li>
+                    <li><p>Program search all classes in file finds his classes</p></li>
+                    <li><p>Adds it to output.css that is <code class="font-bold">&#60;link href="output.css"/&#62;</code> in the html file</p></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+    <style>
+        :root{
+            --pos: attr(data-a)
+        }
+        .bkLine{
+            width: 100px;
+            height: 10px;
+            fill: var(--bg-color);
+            animation:  anim-bkLine 1s infinite;
+            animation-timing-function: ease-out;
+            animation-delay: var(--anim-delay);
+            opacity: 0;
+        }
+        @keyframes anim-bkLine{
+            0%{
+                transform:  rotate(-50deg)  skew(30deg) translate(var(--init-pos-x),var(--init-pos-y)) scaleX(6) scaleY(1.5);
+                opacity: 1;
+            }
+            50%{
+                transform: rotate(-50deg)  skew(30deg) translate(calc( var(--init-pos-x) + 300px),var(--init-pos-y)) scaleX(6) scaleY(1.5);
+                opacity: 0;
+            }
+            51%{
+                transform: rotate(-50deg)  skew(30deg) translate(calc( var(--init-pos-x) - 1000px), var(--init-pos-y)) scaleX(6) scaleY(1.5);
+                opacity: 0;
+            }
+            100%{
+                transform:  rotate(-50deg)  skew(30deg) translate(var(--init-pos-x),var(--init-pos-y)) scaleX(6) scaleY(1.5);
+                opacity: 1;
+            }
+        }
+       
+    </style>
+</html>
